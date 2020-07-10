@@ -1,0 +1,66 @@
+name: purescript-cst-cli
+version: 0.1.0.0
+github: "i-am-the-slime/purescript-cst-cli"
+license: BSD-3
+author: "Mark Eibes"
+maintainer: "mark.eibes@gmail.com"
+copyright: "2020 Mark Eibes"
+
+extra-source-files:
+  - README.md
+  - ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Please see the README on GitHub at <https://github.com/i-am-the-slime/purescript-cst-cli#readme>
+
+dependencies:
+  - base >= 4.7 && < 5
+  - purescript-cst
+  - purescript-ast
+  - purescript-bridge
+  - mtl
+  - parallel
+  - text
+  - base-compat
+  - protolude
+  - transformers
+  - containers
+  - aeson
+  - aeson-pretty
+
+library:
+  source-dirs: src
+
+default-extensions: !include "./default-extensions.yaml"
+
+executables:
+  purescript-cst-cli-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - -threaded
+      - -static
+      - -O2
+      - -rtsopts
+      - -with-rtsopts=-N
+    cc-options: -static
+    ld-options: -pthread
+    dependencies:
+      - purescript-cst-cli
+
+tests:
+  purescript-cst-cli-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - purescript-cst-cli

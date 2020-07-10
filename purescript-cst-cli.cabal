@@ -1,0 +1,105 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 513e1decd8011d84af9a01e12a2c7d51e47d673a8e5990f3cf440ad5657cc235
+
+name:           purescript-cst-cli
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/i-am-the-slime/purescript-cst-cli#readme>
+homepage:       https://github.com/i-am-the-slime/purescript-cst-cli#readme
+bug-reports:    https://github.com/i-am-the-slime/purescript-cst-cli/issues
+author:         Mark Eibes
+maintainer:     mark.eibes@gmail.com
+copyright:      2020 Mark Eibes
+license:        BSD-3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/i-am-the-slime/purescript-cst-cli
+
+library
+  exposed-modules:
+      Language.PureScript.Codecs
+      Language.PureScript.CST
+      Lib
+  other-modules:
+      Paths_purescript_cst_cli
+  hs-source-dirs:
+      src
+  default-extensions: BangPatterns ConstraintKinds DataKinds DefaultSignatures DeriveFunctor DeriveFoldable DeriveTraversable DeriveGeneric DerivingStrategies EmptyDataDecls FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NoImplicitPrelude PatternGuards PatternSynonyms RankNTypes RecordWildCards OverloadedStrings ScopedTypeVariables TupleSections TypeFamilies ViewPatterns
+  build-depends:
+      aeson
+    , aeson-pretty
+    , base >=4.7 && <5
+    , base-compat
+    , containers
+    , mtl
+    , parallel
+    , protolude
+    , purescript-ast
+    , purescript-bridge
+    , purescript-cst
+    , text
+    , transformers
+  default-language: Haskell2010
+
+executable purescript-cst-cli-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_purescript_cst_cli
+  hs-source-dirs:
+      app
+  default-extensions: BangPatterns ConstraintKinds DataKinds DefaultSignatures DeriveFunctor DeriveFoldable DeriveTraversable DeriveGeneric DerivingStrategies EmptyDataDecls FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NoImplicitPrelude PatternGuards PatternSynonyms RankNTypes RecordWildCards OverloadedStrings ScopedTypeVariables TupleSections TypeFamilies ViewPatterns
+  ghc-options: -threaded -static -O2 -rtsopts -with-rtsopts=-N
+  cc-options: -static
+  ld-options: -pthread
+  build-depends:
+      aeson
+    , aeson-pretty
+    , base >=4.7 && <5
+    , base-compat
+    , containers
+    , mtl
+    , parallel
+    , protolude
+    , purescript-ast
+    , purescript-bridge
+    , purescript-cst
+    , purescript-cst-cli
+    , text
+    , transformers
+  default-language: Haskell2010
+
+test-suite purescript-cst-cli-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_purescript_cst_cli
+  hs-source-dirs:
+      test
+  default-extensions: BangPatterns ConstraintKinds DataKinds DefaultSignatures DeriveFunctor DeriveFoldable DeriveTraversable DeriveGeneric DerivingStrategies EmptyDataDecls FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NoImplicitPrelude PatternGuards PatternSynonyms RankNTypes RecordWildCards OverloadedStrings ScopedTypeVariables TupleSections TypeFamilies ViewPatterns
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , aeson-pretty
+    , base >=4.7 && <5
+    , base-compat
+    , containers
+    , mtl
+    , parallel
+    , protolude
+    , purescript-ast
+    , purescript-bridge
+    , purescript-cst
+    , purescript-cst-cli
+    , text
+    , transformers
+  default-language: Haskell2010
